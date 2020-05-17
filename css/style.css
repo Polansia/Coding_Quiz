@@ -1,0 +1,182 @@
+body{
+    font-size: 20px;
+    font-family: "Arial", "Josefin Sans", sans-serif;
+}
+.quiz{
+    margin : 20px auto;
+    background-color: white;
+    height: 400px;
+    width : 700px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px;
+    position: relative;
+}
+#start{
+    font-size: 2em;
+    font-weight: bolder;
+    word-break: break-all;
+    
+    width:100px;
+    height:100px;
+    border : 2px solid lightgrey;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    left:300px;
+    top:100px;
+    color : lightgrey;
+}
+#start:hover{
+    border: 3px solid rgb(226, 157, 9);
+    color : rgb(226, 157, 9);
+}
+
+
+#question{
+    width:500px;
+    height : 125px;
+    position: absolute;
+    right:0;
+    top:0;
+}
+#question p{
+    margin : 0;
+    padding : 15px;
+    font-size: 1.25em;
+}
+
+#choices{
+    width : 800px;
+    margin-left: 150px;
+    position: relative;
+    top : 200px;
+    
+}
+.choice{
+    display: block;
+    margin-top:5px;
+    width : 400px;
+    text-align: center;
+    border : 1px solid rgb(85, 85, 85);
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.choice:hover{
+    border : 2px solid rgb(85, 85, 85);
+    font-weight: bold;
+}
+
+#timer{
+    position: absolute;
+    height : 100px;
+    width : 200px;
+    bottom : 0px;
+    text-align: center;
+}
+
+
+.timer {
+    height: 20px;
+    width: 100px;
+    margin: 10px;
+    top: 10px;
+    background-color: rgb(253, 84, 54);
+    position: absolute;
+    border-radius: 10%;
+  }
+  
+  #seconds {
+    font-size: 2em;
+    float: left;
+  }
+  
+  .right{
+    text-decoration: underline;
+    position: absolute;
+    bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .wrong{
+    text-decoration: underline;
+    position: absolute;
+    bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  #score{
+
+    font-weight: bold;
+    position: absolute;
+    bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    left: 40%;
+    height: 300px;
+  }
+table, td, th {
+    border: 1px solid black;
+
+  }
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+#scoreboard {
+    text-align: center;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+    
+}
+td {
+    
+    width: 10%;
+  }
+button{
+position: absolute;
+left:43%;
+top: 150px;
+}
+label{
+
+    position: absolute;
+    left:30%;
+    top: 100px;
+}
+input{
+    position: absolute;
+    left:43%;
+    top: 100px;
+
+}
+#leaderboardButton{
+
+position: absolute;
+left:40%;
+top: 250px;
+}
+
+#clearButton{
+
+    position: absolute;
+    left:40%;
+    top: 250px;
+
+}
+
+
+
+
+
+
+
+
+
