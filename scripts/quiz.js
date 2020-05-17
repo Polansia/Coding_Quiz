@@ -7,6 +7,15 @@ var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
 var choiceD = document.querySelector("#D");
 var timer = document.querySelector("#timer");
+var leaderboardButton = document.querySelector('#leaderboardButton');
+var backButton = document.querySelector('#backButton');
+var scoreButton = document.querySelector('#scoreButton');
+var score = document.querySelector('#score');
+var label = document.querySelector('#label');
+var name = document.querySelector('#name');
+var wrong = document.querySelector('#wrong');
+var right = document.querySelector('#right');
+var scoreBoard = document.querySelector('#scoreboard');
 
 var questions = [
     {
@@ -81,14 +90,16 @@ var questions = [
         correct : "C"
     }
 ];
-var score = false;
-var index;
+var scoreTrue = false;
+var index = 1;
 var questionAmmount = 9;
 var currentQuestion = 0;
 var currentScore = 0;
 var interval = 1000
 var timeleft;
-var prevScore;
+var prevScore = 0;
+scoreButton.style.display='none';
+backButton.style.display='none';
 var downloadTimer = setInterval(function(){
   if(timeleft <= 0){
     clearInterval(downloadTimer);
@@ -114,11 +125,11 @@ start.addEventListener("click",startQuiz);
 
 
 function startQuiz(){
-    document.getElementById('start').style="display: none"
+    start.style="display: none"
     renderQuestion();
-    document.getElementById('quiz').style.display = "block";
+    quiz.style= "display: block";
     timeleft = 90;
-    document.getElementById('leaderboardButton').style="display: none"
+    leaderboardButton.style="display: none"
 }
 
 function checkAnswer(answer){
@@ -139,10 +150,10 @@ function checkAnswer(answer){
 
 
 function answerIsCorrect(){
-    document.getElementById('wrong').style.display='none'; 
-    document.getElementById('right').style.display='none';
-    document.getElementById('right').style.display='block';
-    setTimeout(function(){ document.getElementById('right').style.display='none'; }, 2000);
+    wrong.style.display='none'; 
+    right.style.display='none';
+    right.style.display='block';
+    setTimeout(function(){ right.style.display='none'; }, 2000);
 }
 
 
@@ -153,10 +164,10 @@ function answerIsWrong(){
         currentScore = 0;
 
     }
-    document.getElementById('wrong').style.display='none'; 
-    document.getElementById('right').style.display='none';
-    document.getElementById('wrong').style.display='block';
-    setTimeout(function(){ document.getElementById('wrong').style.display='none'; }, 2000);
+    wrong.style.display='none'; 
+    right.style.display='none';
+    wrong.style.display='block';
+    setTimeout(function(){ wrong.style.display='none'; }, 2000);
    
 }
 
@@ -166,55 +177,62 @@ function scoreRender(){
        timeleft = 0
        currentScore = timeleft;
     }
-    
-    if (currentScore > prevScore){
-        index = 1;
+    if (scoreTrue == true){
 
-    }
-    else
-    {
-        index = -1;
-    }
+        if (currentScore > prevScore){
+            index = 1;
+
+        }
+        else
+        {
+            index = -1;
+     } }
         
+     else{
+
+        index = 1;
+     }
+
     clearInterval(downloadTimer); 
     quiz.style.display = "none";
-    document.getElementById('score').style.display='block'; 
-    document.getElementById("score").innerHTML = "Your Score is:" + timeleft;
-    document.getElementById('label').style.display='block';
-    document.getElementById('name').style.display='block';
-    document.getElementById('scoreButton').style.display='block';
+    score.style.display='block'; 
+    score.innerHTML = "Your Score is:" + timeleft;
+    label.style.display='block';
+    document.getElementById("name").style.display='block';
+    scoreButton.style.display='block';
 }
 
 function saveScore() {
-    var table = document.getElementById("scoreboard");
+    clearInterval(downloadTimer);
+    var table = document.getElementById("scoreBoard");
     var row = table.insertRow(index);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = document.getElementById("name").value;
-    cell2.innerHTML = timeleft;
-    score = true;
+    cell2.innerHTML = currentScore;
+    scoreTrue = true;
 
-    document.getElementById('score').style.display='none'; 
-    document.getElementById('label').style.display='none';
-    document.getElementById('name').style.display='none';
-    document.getElementById('scoreButton').style.display='none';
+    score.style.display='none'; 
+    label.style.display='none';
+    document.getElementById("name").style.display='none';
+    scoreButton.style.display='none';
 
-    document.getElementById('scoreboard').style.display='block';
-    document.getElementById('backButton').style.display='block';
+    document.getElementById("scoreBoard").style.display='block';
+    backButton.style.display='block';
   }
 
 
   function back() {
 
-    document.getElementById('score').style.display='none'; 
-    document.getElementById('label').style.display='none';
-    document.getElementById('name').style.display='none';
-    document.getElementById('scoreButton').style.display='none';
-    document.getElementById('backButton').style.display='none'; 
-    document.getElementById('scoreboard').style.display='none';
+    score.style.display='none'; 
+    label.style.display='none';
+    document.getElementById("name").style.display='none';
+    scoreButton.style.display='none';
+    backButton.style.display='none'; 
+    document.getElementById("scoreBoard").style.display='none';
 
-    document.getElementById('start').style.display = "block";
-    document.getElementById('leaderboardButton').style.display='block';
+    start.style.display = "block";
+    leaderboardButton.style.display='block';
     currentQuestion = 0;
     prevScore = currentScore;
     interval = 1000
@@ -230,17 +248,17 @@ function saveScore() {
   }
 
   function leaderboard() {
-      if (score == true){
+      if (scoreTrue == true){
         
-        document.getElementById('score').style.display='none'; 
-        document.getElementById('label').style.display='none';
-        document.getElementById('name').style.display='none';
-        document.getElementById('scoreButton').style.display='none';
-        document.getElementById('start').style.display='none';
-        document.getElementById('leaderboardButton').style.display='none';
+        score.style.display='none'; 
+        label.style.display='none';
+        document.getElementById("name").style.display='none';
+        scoreButton.style.display='none';
+        start.style.display='none';
+        leaderboardButton.style.display='none';
 
-        document.getElementById('scoreboard').style.display='block';
-        document.getElementById('backButton').style.display='block';
+        document.getElementById("scoreBoard").style.display='block';
+        backButton.style.display='block';
        
       }
       else{
