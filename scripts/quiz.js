@@ -54,7 +54,7 @@ var questions = [
     },{
         question : "What tag is used to specify a line of text that is no longer correct (it used to be the strike tag, but that no longer works in HTML5)?",
         choiceA : "s",
-        choiceB : "s",
+        choiceB : "ls",
         choiceC : "ul",
         choiceD : "u",
         correct : "A"

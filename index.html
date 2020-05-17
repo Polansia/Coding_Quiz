@@ -8,23 +8,29 @@
 </head>
 <body>
     <div id="container" class="quiz">
-        <title id ="title">CODING QUIZ</title>
+        
         <button class="btn btn-primary btn-lg button" id= "leaderboardButton" type="button" onclick="leaderboard()">Leaderboards</button>
         <div id="start">Start Quiz!</div>
-        <div id="quiz" style="display: none">
+        <main id="quiz" style="display: none">
+
             <div id="question"></div>
-            <div id="qImg"></div>
+            
             <div id="choices">
+
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
                 <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+
             </div>
-            <div class="timer" >
+
+            <time class="timer" >
                 <div id="countdown"></div>
-            </div>
+            </time>
+
             <div id="progress"></div>
-        </div>
+
+        </main>
         
         
             <div id="score" style="display: none">
@@ -33,13 +39,13 @@
             </div>
        
         
-        <div id="wrong" class="wrong" style="display: none">
+        <aside id="wrong" class="wrong" style="display: none">
             Wrong!
-        </div>
+        </aside>
 
-        <div id="right" class="right" style="display: none">
+        <aside id="right" class="right" style="display: none">
             Right!
-        </div>
+        </aside>
 
 
         <table id="scoreboard"style="display: none">
@@ -47,19 +53,18 @@
             <tr>
             
             </tr>
+
             <button class="btn btn-primary btn-lg button" id= "backButton" type="button" onclick="back()"style="display: none">Back</button>
+        
         </table>
 
               <label for="name" id="label" style="display: none">First name:</label>
               <input type="text" id="name" name="name"style="display: none"><br><br>
               <button class="btn btn-primary btn-lg button" id= "scoreButton" type="button" onclick="saveScore()"style="display: none">Save Score</button>
 
-              
-
     </div>
 
-    
-
     <script src="./scripts/quiz.js"></script>
+
 </body>
 </html>
