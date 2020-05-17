@@ -1,1 +1,1 @@
-# Coding_Quiz![Generator](Generator.JPG?raw=true "Generator")
+# Coding_Quiz![Generator](images/Generator.JPG?raw=true "Generator")
